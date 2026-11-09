@@ -1,0 +1,53 @@
+# EOL test recipe: base cab (no remote-control gateway; CAN terminated in HVAC).
+# Limits are placeholders for a simulated product, not values from a vehicle standard.
+variant: base
+description: Base cab, no remote-control gateway
+continuity:
+  connected_max_ohm: 10.0
+  isolated_min_ohm: 1.0e+5
+  max_extra_ohm: 0.10
+  bond_max_ohm: 0.10
+  chassis_bonded_nets: [GND]
+insulation:
+  ir_test_v: 500
+  ir_min_ohm: 1.0e+8
+  hipot_v: 1000
+  hipot_dwell_s: 1.0
+  hipot_max_a: 1.0e-3
+can_termination:
+  pins: ["X7:3", "X7:4"]
+  term_ohm: 60.0
+  term_tol: 0.10
+power:
+  supply_v: 27.0
+  circuits:
+    - {circuit: PWR_DASH,  module: DASH,  nominal_a: 0.90, min_a: 0.60, max_a: 1.30}
+    - {circuit: PWR_LIGHT, module: LIGHT, nominal_a: 0.35, min_a: 0.20, max_a: 0.60}
+    - {circuit: PWR_HVAC,  module: HVAC,  nominal_a: 1.20, min_a: 0.80, max_a: 1.80}
+    - {circuit: PDU_SELF,  module: PDU,   nominal_a: 0.25, min_a: 0.15, max_a: 0.40}
+can:
+  tester_sa: 0xF9
+  claim_listen_s: 0.30
+  request_listen_s: 0.25
+  monitor_s: 2.0
+  cycle_tol: 0.10
+  max_gap_factor: 2.5
+  resp_timeout_s: 0.15
+  nodes:
+    - {ecu: DASH,  conn: X1, sa: 0x30, function: 0x82, sw: "2.4.1", termination: true}
+    - {ecu: LIGHT, conn: X2, sa: 0x31, function: 0x83, sw: "1.9.0", termination: false}
+    - {ecu: PDU,   conn: X3, sa: 0x32, function: 0x84, sw: "3.1.2", termination: false}
+    - {ecu: HVAC,  conn: X4, sa: 0x33, function: 0x85, sw: "1.2.7", termination: true}
+  signals:
+    - {msg: PDU_STATUS,   signal: supply_voltage,    min: 24.0, max: 29.5}
+    - {msg: PDU_STATUS,   signal: breaker_trip_bits, min: 0,    max: 0}
+    - {msg: LIGHT_STATUS, signal: lamp_fault_bits,   min: 0,    max: 0}
+    - {msg: HVAC_STATUS,  signal: cabin_temp,        min: -10,  max: 45}
+  alive_counters: []
+timing:
+  continuity_per_pin_s: 0.005
+  resistance_per_pin_s: 0.02
+  ir_per_group_s: 1.2
+  hipot_extra_s: 0.2
+  power_per_circuit_s: 1.0
+  handling_s: 60

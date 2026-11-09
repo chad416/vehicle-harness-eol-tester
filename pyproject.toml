@@ -1,0 +1,29 @@
+[project]
+name = "harness-eol"
+version = "0.1.0"
+description = "Simulated end-of-line electrical test of a vehicle cab: harness, insulation, power-up and J1939-style CAN"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+    "PyYAML>=6.0",
+    "cantools>=39.0",
+    "python-can>=4.3",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0", "ruff>=0.5"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I"]
+ignore = ["E402", "B905"]

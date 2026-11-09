@@ -1,0 +1,8 @@
+conn,description,pins,module
+X1,Dashboard module,24,DASH
+X2,Lighting module,24,LIGHT
+X3,Power distribution unit,32,PDU
+X4,HVAC module,16,HVAC
+X5,Remote-control gateway,12,RCG
+X6,Chassis interface (to chassis harness),40,
+X7,Diagnostic connector,8,

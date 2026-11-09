@@ -1,0 +1,320 @@
+[
+ {
+  "kind": "stud",
+  "size": 0.029,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "highres",
+  "size": 0.061,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "leak",
+  "size": 65840.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.794,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.874,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.036,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.863,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.05,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "leak",
+  "size": 24170.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "leak",
+  "size": 304600000.0,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "highres",
+  "size": 0.06,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.256,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.877,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.04,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.068,
+  "detected": true,
+  "above_limit": false
+ },
+ {
+  "kind": "highres",
+  "size": 0.462,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 1.834,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "leak",
+  "size": 48370000.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.032,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.039,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.061,
+  "detected": true,
+  "above_limit": false
+ },
+ {
+  "kind": "leak",
+  "size": 38940.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.078,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.29,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.096,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.729,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.268,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.085,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.085,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "leak",
+  "size": 533200.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.853,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "leak",
+  "size": 67860000.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 1.812,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.248,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "leak",
+  "size": 3651000.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "leak",
+  "size": 60060.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "leak",
+  "size": 17710000.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.055,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "highres",
+  "size": 0.451,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.038,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.438,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.04,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.069,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.468,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "leak",
+  "size": 413700000.0,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "stud",
+  "size": 0.133,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "leak",
+  "size": 12830.0,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.09,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.108,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.31,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "highres",
+  "size": 0.03,
+  "detected": false,
+  "above_limit": false
+ },
+ {
+  "kind": "highres",
+  "size": 0.717,
+  "detected": true,
+  "above_limit": true
+ },
+ {
+  "kind": "stud",
+  "size": 0.167,
+  "detected": true,
+  "above_limit": true
+ }
+]

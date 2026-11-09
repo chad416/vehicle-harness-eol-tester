@@ -1,0 +1,219 @@
+{
+  "seed": 1,
+  "cabs": 500,
+  "variants": [
+    "cmd",
+    "base"
+  ],
+  "faults_injected": 319,
+  "fault_free_cabs": 249,
+  "false_rejects": 0,
+  "first_pass_yield": 0.512,
+  "escapes_above_limit": 0,
+  "escapes_below_limit": 16,
+  "detected_above_limit": 301,
+  "above_limit": 301,
+  "exact_localisation": 295,
+  "cabs_not_passing_after_rework": 0,
+  "test_time_first_run_s": {
+    "mean": 173.6,
+    "max": 190.8
+  },
+  "per_kind": {
+    "addr": {
+      "n": 17,
+      "above_limit": 17,
+      "detected": 17,
+      "exact": 17,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 2
+    },
+    "alive": {
+      "n": 8,
+      "above_limit": 8,
+      "detected": 8,
+      "exact": 8,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 0
+    },
+    "conflict": {
+      "n": 15,
+      "above_limit": 15,
+      "detected": 15,
+      "exact": 15,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 4
+    },
+    "cycle": {
+      "n": 18,
+      "above_limit": 18,
+      "detected": 18,
+      "exact": 18,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 4
+    },
+    "damaged": {
+      "n": 23,
+      "above_limit": 23,
+      "detected": 23,
+      "exact": 23,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 0
+    },
+    "dtc": {
+      "n": 16,
+      "above_limit": 16,
+      "detected": 16,
+      "exact": 16,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 3
+    },
+    "extraterm": {
+      "n": 22,
+      "above_limit": 22,
+      "detected": 22,
+      "exact": 19,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 0
+    },
+    "highres": {
+      "n": 18,
+      "above_limit": 9,
+      "detected": 9,
+      "exact": 9,
+      "escape_above_limit": 0,
+      "escape_below_limit": 9,
+      "found_on_retest": 0
+    },
+    "idle": {
+      "n": 19,
+      "above_limit": 19,
+      "detected": 19,
+      "exact": 19,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 3
+    },
+    "leak": {
+      "n": 12,
+      "above_limit": 10,
+      "detected": 10,
+      "exact": 10,
+      "escape_above_limit": 0,
+      "escape_below_limit": 2,
+      "found_on_retest": 0
+    },
+    "miswire": {
+      "n": 17,
+      "above_limit": 17,
+      "detected": 17,
+      "exact": 17,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 0
+    },
+    "noresp": {
+      "n": 24,
+      "above_limit": 24,
+      "detected": 24,
+      "exact": 24,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 4
+    },
+    "noterm": {
+      "n": 19,
+      "above_limit": 19,
+      "detected": 19,
+      "exact": 17,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 0
+    },
+    "open": {
+      "n": 20,
+      "above_limit": 20,
+      "detected": 20,
+      "exact": 20,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 0
+    },
+    "remote": {
+      "n": 6,
+      "above_limit": 6,
+      "detected": 6,
+      "exact": 6,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 1
+    },
+    "short": {
+      "n": 15,
+      "above_limit": 15,
+      "detected": 15,
+      "exact": 15,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 0
+    },
+    "stud": {
+      "n": 23,
+      "above_limit": 16,
+      "detected": 16,
+      "exact": 16,
+      "escape_above_limit": 0,
+      "escape_below_limit": 5,
+      "found_on_retest": 0
+    },
+    "sw": {
+      "n": 16,
+      "above_limit": 16,
+      "detected": 16,
+      "exact": 16,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 2
+    },
+    "unplugged": {
+      "n": 11,
+      "above_limit": 11,
+      "detected": 11,
+      "exact": 10,
+      "escape_above_limit": 0,
+      "escape_below_limit": 0,
+      "found_on_retest": 0
+    }
+  },
+  "pareto_first_run": {
+    "TERMINATION": 50,
+    "TERMINATION_CONFIG": 36,
+    "BREAKDOWN": 23,
+    "HIGH_RES": 21,
+    "NO_RESPONSE": 20,
+    "OPEN": 20,
+    "WRONG_ADDRESS": 19,
+    "BOND": 19,
+    "MISWIRE": 17,
+    "SHORT": 15,
+    "UNDERCURRENT": 15,
+    "CYCLE_TIME": 14,
+    "SW_VERSION": 14,
+    "ACTIVE_DTC": 13,
+    "ADDRESS_CONFLICT": 11,
+    "OVERCURRENT": 11,
+    "NODE_MISSING": 10,
+    "IR_LOW": 9,
+    "ALIVE_COUNTER": 8,
+    "SIGNAL_RANGE": 5,
+    "LEAK": 5
+  },
+  "wall_s": 10.4
+}

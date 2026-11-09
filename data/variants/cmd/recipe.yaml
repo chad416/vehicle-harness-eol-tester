@@ -1,0 +1,58 @@
+# EOL test recipe: command cab (with remote-control gateway).
+# Limits are placeholders for a simulated product, not values from a vehicle standard.
+variant: cmd
+description: Command cab, remote-control gateway fitted
+continuity:
+  connected_max_ohm: 10.0       # below: pins are connected
+  isolated_min_ohm: 1.0e+5       # above: pins are isolated; between: resistive leak
+  max_extra_ohm: 0.10           # allowed excess over computed pin-to-pin resistance
+  bond_max_ohm: 0.10            # chassis-bonded pin to chassis
+  chassis_bonded_nets: [GND]
+insulation:
+  ir_test_v: 500
+  ir_min_ohm: 1.0e+8
+  hipot_v: 1000
+  hipot_dwell_s: 1.0
+  hipot_max_a: 1.0e-3
+can_termination:
+  pins: ["X7:3", "X7:4"]
+  term_ohm: 60.0
+  term_tol: 0.10
+power:
+  supply_v: 27.0
+  circuits:
+    - {circuit: PWR_DASH,  module: DASH,  nominal_a: 0.90, min_a: 0.60, max_a: 1.30}
+    - {circuit: PWR_LIGHT, module: LIGHT, nominal_a: 0.35, min_a: 0.20, max_a: 0.60}
+    - {circuit: PWR_HVAC,  module: HVAC,  nominal_a: 1.20, min_a: 0.80, max_a: 1.80}
+    - {circuit: PWR_RCG,   module: RCG,   nominal_a: 1.60, min_a: 1.10, max_a: 2.20}
+    - {circuit: PDU_SELF,  module: PDU,   nominal_a: 0.25, min_a: 0.15, max_a: 0.40}
+can:
+  tester_sa: 0xF9
+  claim_listen_s: 0.30
+  request_listen_s: 0.25
+  monitor_s: 2.0
+  cycle_tol: 0.10
+  max_gap_factor: 2.5
+  resp_timeout_s: 0.15
+  nodes:
+    - {ecu: DASH,  conn: X1, sa: 0x30, function: 0x82, sw: "2.4.1", termination: true}
+    - {ecu: LIGHT, conn: X2, sa: 0x31, function: 0x83, sw: "1.9.0", termination: false}
+    - {ecu: PDU,   conn: X3, sa: 0x32, function: 0x84, sw: "3.1.2", termination: false}
+    - {ecu: HVAC,  conn: X4, sa: 0x33, function: 0x85, sw: "1.2.7", termination: false}
+    - {ecu: RCG,   conn: X5, sa: 0x34, function: 0x86, sw: "0.8.3", termination: true}
+  signals:
+    - {msg: PDU_STATUS,   signal: supply_voltage,    min: 24.0, max: 29.5}
+    - {msg: PDU_STATUS,   signal: breaker_trip_bits, min: 0,    max: 0}
+    - {msg: LIGHT_STATUS, signal: lamp_fault_bits,   min: 0,    max: 0}
+    - {msg: HVAC_STATUS,  signal: cabin_temp,        min: -10,  max: 45}
+    - {msg: RCG_STATUS,   signal: mode,              min: 0,    max: 0}   # must be LOCAL at EOL
+    - {msg: RCG_STATUS,   signal: estop_chain_ok,    min: 1,    max: 1}
+  alive_counters:
+    - {msg: RCG_STATUS, signal: alive_counter}
+timing:                          # modelled step durations (not measured)
+  continuity_per_pin_s: 0.005
+  resistance_per_pin_s: 0.02
+  ir_per_group_s: 1.2
+  hipot_extra_s: 0.2
+  power_per_circuit_s: 1.0
+  handling_s: 60

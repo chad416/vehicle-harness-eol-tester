@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Lint (ruff)
+        run: ruff check harness_eol tools tests
+
+      - name: Netlists match the generator, traceability is current (SPEC 6)
+        run: |
+          python tools/gen_harness.py --check
+          python tools/traceability.py --check
+
+      # IT06 runs the CAN step on SocketCAN. It needs the vcan kernel module, which hosted
+      # runners may not have: then this step says so and IT06 is skipped, not failed.
+      - name: Virtual CAN interface vcan0 for IT06 (if the runner's kernel has vcan)
+        run: |
+          if sudo modprobe vcan 2>/dev/null || { sudo apt-get install -y -qq "linux-modules-extra-$(uname -r)" >/dev/null 2>&1 && sudo modprobe vcan; }; then
+            sudo ip link add dev vcan0 type vcan && sudo ip link set up vcan0 && ip -details link show vcan0
+          else
+            echo "::notice::no vcan module on this runner: IT06 (SocketCAN) will be skipped"
+          fi
+
+      - name: Unit and integration tests (IT01-IT08)
+        run: python -m pytest -v -rs
+
+      - name: Demo runs (one good cab, one with harness faults, one with network faults)
+        run: |
+          python -m harness_eol run --serial CAB-0416 --out out
+          python -m harness_eol run --serial CAB-0417 --fault miswire:X2:3/X2:4 --fault open:W050 --fault highres:W012/0.3 --out out || true
+          python -m harness_eol run --serial CAB-0418 --fault conflict:HVAC/DASH --fault dtc:LIGHT/520300/7 --fault cycle:PDU/1.5 --fault noterm:RCG --fault remote --out out || true
+          test -f out/CAB-0416.pdf && test -f out/CAB-0417.pdf && test -f out/CAB-0418.pdf
+
+      - name: Batch, 100 cabs (F18)
+        run: python -m harness_eol batch --n 100 --seed 1 --out results/ci_batch
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eol-reports
+          path: |
+            out/
+            results/ci_batch/

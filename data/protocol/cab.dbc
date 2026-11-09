@@ -1,0 +1,45 @@
+VERSION "cab 1.0"
+
+NS_ :
+
+BS_:
+
+BU_: DASH LIGHT PDU HVAC RCG EOL
+
+BO_ 2566852656 DASH_STATUS: 8 DASH
+ SG_ switch_bits : 0|8@1+ (1,0) [0|255] "" EOL
+ SG_ backlight_pct : 8|8@1+ (1,0) [0|100] "%" EOL
+ SG_ key_on : 16|1@1+ (1,0) [0|1] "" EOL
+
+BO_ 2566856753 LIGHT_STATUS: 8 LIGHT
+ SG_ lamp_out_bits : 0|16@1+ (1,0) [0|65535] "" EOL
+ SG_ lamp_fault_bits : 16|16@1+ (1,0) [0|65535] "" EOL
+ SG_ lamp_current : 32|16@1+ (0.01,0) [0|655.35] "A" EOL
+
+BO_ 2566860850 PDU_STATUS: 8 PDU
+ SG_ supply_voltage : 0|16@1+ (0.05,0) [0|3276.75] "V" EOL
+ SG_ total_current : 16|16@1+ (0.1,0) [0|6553.5] "A" EOL
+ SG_ breaker_trip_bits : 32|16@1+ (1,0) [0|65535] "" EOL
+
+BO_ 2566864947 HVAC_STATUS: 8 HVAC
+ SG_ cabin_temp : 0|16@1+ (0.1,-40) [-40|6513.5] "degC" EOL
+ SG_ fan_speed_pct : 16|8@1+ (1,0) [0|100] "%" EOL
+ SG_ compressor_on : 24|1@1+ (1,0) [0|1] "" EOL
+
+BO_ 2566869044 RCG_STATUS: 8 RCG
+ SG_ mode : 0|8@1+ (1,0) [0|2] "" EOL
+ SG_ alive_counter : 8|8@1+ (1,0) [0|255] "" EOL
+ SG_ estop_chain_ok : 16|1@1+ (1,0) [0|1] "" EOL
+ SG_ link_quality_pct : 24|8@1+ (1,0) [0|100] "%" EOL
+
+CM_ BO_ 2566869044 "Remote-control gateway status. mode: 0 LOCAL, 1 REMOTE_REQUESTED, 2 REMOTE_ACTIVE.";
+
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 2566852656 100;
+BA_ "GenMsgCycleTime" BO_ 2566856753 100;
+BA_ "GenMsgCycleTime" BO_ 2566860850 50;
+BA_ "GenMsgCycleTime" BO_ 2566864947 500;
+BA_ "GenMsgCycleTime" BO_ 2566869044 20;
+
+VAL_ 2566869044 mode 0 "LOCAL" 1 "REMOTE_REQUESTED" 2 "REMOTE_ACTIVE" ;
